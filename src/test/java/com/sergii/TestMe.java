@@ -1,3 +1,5 @@
+package com.sergii;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

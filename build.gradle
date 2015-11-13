@@ -11,7 +11,9 @@ repositories {
 
 
 test{
-
+beforeTest{
+    description -> logger.lifecycle(description)
+}
 }
 
 dependencies {
