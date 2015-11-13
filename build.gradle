@@ -10,11 +10,6 @@ repositories {
 }
 
 
-test{
-beforeTest{
-    description -> logger.lifecycle(description)
-}
-}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
