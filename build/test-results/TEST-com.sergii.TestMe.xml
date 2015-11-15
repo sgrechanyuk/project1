@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.sergii.TestMe" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-11-15T16:17:21" hostname="MacBook-Pro-Kristina.local" time="0.001">
-  <properties/>
-  <testcase name="testMe" classname="com.sergii.TestMe" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
