@@ -11,7 +11,6 @@ import org.apache.log4j.PatternLayout;
 import org.junit.runner.Runner;
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
-import org.junit.runners.model.RunnerBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -35,7 +34,7 @@ public class MySuiteRunner extends Suite{
     private static foo.bar.cases.Suite suite;
 
     public MySuiteRunner(Class<?> klass) throws Exception {
-        super(loadSuite(klass), Collections.emptyList());
+        super(loadSuite(klass), Collections.EMPTY_LIST);
     }
 
     @Override
@@ -89,7 +88,7 @@ public class MySuiteRunner extends Suite{
         System.out.println("adding url "+url);
         URLClassLoader classLoader
                 = (URLClassLoader) ClassLoader.getSystemClassLoader();
-        Class clazz= URLClassLoader.class;
+        Class<URLClassLoader> clazz= URLClassLoader.class;
 
         // Use reflection
         Method method= clazz.getDeclaredMethod("addURL", new Class[] { URL.class });
