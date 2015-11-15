@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
         sysProps = "prop1=val1;prop2=val2;xmlFile=Ctx.xml",
         extraClassPath = "dev;dev/foo/bar"
 )
-@RunWith(MyTestRunner.class)
+@RunWith(MySuiteRunner.class)
 @ContextConfiguration("classpath:ctx.xml")
 public class MySuperTest {
 }
