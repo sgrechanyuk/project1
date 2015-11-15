@@ -45,7 +45,7 @@ public class MySuiteRunner extends Suite{
                 if (testCase.childrenCases().isEmpty()){
 
 
-                    runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), Arrays.asList(testCase), getTestClass().getJavaClass().getName()));
+                    //runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), Arrays.asList(testCase), getTestClass().getJavaClass().getName()));
                 }else{
 //                    runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), testCase.childrenCases()));
 //                    runners.add(new MyPlainTestRunner2(getTestClass().getJavaClass(), testCase.childrenCases()));
