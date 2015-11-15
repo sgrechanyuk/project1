@@ -22,12 +22,19 @@ public class MyPlainTestRunner extends BlockJUnit4ClassRunner {
      * @param klass
      * @throws InitializationError if the test class is malformed.
      */
-    public MyPlainTestRunner(Class<?> klass, List<TestCase> cases) throws InitializationError {
+
+    private final String parentName;
+
+
+    public MyPlainTestRunner(Class<?> klass, List<TestCase> cases, String parentName) throws InitializationError {
         super(processTests(klass, cases));
+        this.parentName = parentName;
     }
 
-
-
+    @Override
+    protected String getName() {
+        return parentName;
+    }
 
     private static Class processTests(Class klass, List<TestCase> cases){
         methods = getTestMethods(cases);

@@ -2,6 +2,7 @@ package foo.bar;
 
 import foo.bar.cases.TestCase;
 import org.junit.runners.BlockJUnit4ClassRunner;
+import org.junit.runners.Parameterized;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.Statement;
@@ -21,12 +22,19 @@ public class MyPlainTestRunner2 extends BlockJUnit4ClassRunner {
      * @param klass
      * @throws InitializationError if the test class is malformed.
      */
-    public MyPlainTestRunner2(Class<?> klass, List<TestCase> cases) throws InitializationError {
+
+    private final String parentName;
+
+
+    public MyPlainTestRunner2(Class<?> klass, List<TestCase> cases, String parentName) throws InitializationError {
         super(processTests(klass, cases));
+        this.parentName = parentName;
     }
 
-
-
+    @Override
+    protected String getName() {
+        return parentName;
+    }
 
     private static Class processTests(Class klass, List<TestCase> cases){
         methods = getTestMethods(cases);
