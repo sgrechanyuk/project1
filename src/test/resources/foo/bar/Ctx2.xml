@@ -11,9 +11,32 @@
     <bean id="testSuite" class="foo.bar.cases.Suite">
         <property name="cases">
             <list>
-                <bean class="foo.bar.cases.Case1"/>
-                <bean class="foo.bar.cases.Case2"/>
-
+                <bean class="foo.bar.cases.ParentCase">
+                    <constructor-arg index="0" value="parenttest1"/>
+                    <constructor-arg index="1">
+                        <list>
+                            <bean class="foo.bar.cases.ChildCase">
+                                <constructor-arg value="child 11"/>
+                            </bean>
+                            <bean class="foo.bar.cases.ChildCase">
+                                <constructor-arg value="child 12"/>
+                            </bean>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="foo.bar.cases.ParentCase">
+                    <constructor-arg index="0" value="parenttest2"/>
+                    <constructor-arg index="1">
+                        <list>
+                            <bean class="foo.bar.cases.ChildCase">
+                                <constructor-arg value="child 21"/>
+                            </bean>
+                            <bean class="foo.bar.cases.ChildCase">
+                                <constructor-arg value="child 22"/>
+                            </bean>
+                        </list>
+                    </constructor-arg>
+                </bean>
             </list>
         </property>
     </bean>

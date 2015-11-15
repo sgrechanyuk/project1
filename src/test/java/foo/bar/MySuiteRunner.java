@@ -1,7 +1,5 @@
 package foo.bar;
 
-import foo.bar.cases.Case1;
-import foo.bar.cases.Case2;
 import foo.bar.cases.TestCase;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.ConsoleAppender;
