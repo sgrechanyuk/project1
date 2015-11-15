@@ -10,6 +10,8 @@ import org.junit.runners.model.Statement;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,8 +29,11 @@ public class MyPlainTestRunner extends BlockJUnit4ClassRunner {
     private final String parentName;
 
 
+    private List<FrameworkMethod> methods;
+
     public MyPlainTestRunner(Class<?> klass, List<TestCase> cases, String parentName) throws InitializationError {
-        super(processTests(klass, cases));
+        super(klass);
+        methods = getTestMethods(cases);
         this.parentName = parentName;
     }
 
@@ -37,19 +42,16 @@ public class MyPlainTestRunner extends BlockJUnit4ClassRunner {
         return parentName;
     }
 
-    private static Class processTests(Class klass, List<TestCase> cases){
-        methods = getTestMethods(cases);
-        return klass;
-    }
-
     @Override
     protected Description describeChild(FrameworkMethod method) {
         return Description.createTestDescription(parentName, method.getName());
     }
 
-    private static List<FrameworkMethod> methods;
-
     protected List<FrameworkMethod> computeTestMethods() {
+        if (methods==null){
+            // we should return some dummy methods in order to pass validation in ParentRunner called from constructor
+            return Arrays.asList(new FrameworkMethod(null));
+        }
         return methods;
     }
 

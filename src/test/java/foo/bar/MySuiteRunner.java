@@ -41,17 +41,10 @@ public class MySuiteRunner extends Suite{
         try {
             for (TestCase testCase : suite.getCases()){
                 if (testCase.childrenCases().isEmpty()){
-
-
-                    //runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), Arrays.asList(testCase), getTestClass().getJavaClass().getName()));
                 }else{
-//                    runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), testCase.childrenCases()));
-//                    runners.add(new MyPlainTestRunner2(getTestClass().getJavaClass(), testCase.childrenCases()));
+                    runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), testCase.childrenCases(), testCase.getName()));
                 }
             }
-            runners.add(new MyPlainTestRunner(getTestClass().getJavaClass(), suite.getCases().get(0).childrenCases(), "case1 tests"));
-            runners.add(new MyPlainTestRunner2(getTestClass().getJavaClass(), suite.getCases().get(1).childrenCases(), "case2 suite"));
-//                    suite.getCases().get(0)
 
         } catch (InitializationError initializationError) {
             initializationError.printStackTrace();
