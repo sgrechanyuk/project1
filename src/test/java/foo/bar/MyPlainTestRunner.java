@@ -1,6 +1,7 @@
 package foo.bar;
 
 import foo.bar.cases.TestCase;
+import org.junit.runner.Description;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.Parameterized;
 import org.junit.runners.model.FrameworkMethod;
@@ -39,6 +40,11 @@ public class MyPlainTestRunner extends BlockJUnit4ClassRunner {
     private static Class processTests(Class klass, List<TestCase> cases){
         methods = getTestMethods(cases);
         return klass;
+    }
+
+    @Override
+    protected Description describeChild(FrameworkMethod method) {
+        return Description.createTestDescription(parentName, method.getName());
     }
 
     private static List<FrameworkMethod> methods;
